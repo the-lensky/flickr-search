@@ -21,7 +21,7 @@ export type InferActionsTypes<T> = T extends { [key: string]: infer U }
 export type ActionsTypes = ReturnType<InferActionsTypes<typeof actions>>;
 
 export const actions = {
-    setResponseDataAC: (data: any) => ({type: SET_RESPONSE_DATA, payload: data} as const),
+    setResponseDataAC: (data: any, isResetCurrentPage: boolean) => ({type: SET_RESPONSE_DATA, payload: {data,isResetCurrentPage}} as const),
     setImagesAC: (data: any) => ({type: SET_IMAGES, payload: data} as const),
     addToBookmarksAC: (image: ImageType) => ({type: ADD_TO_BOOKMARKS, payload: image} as const),
     removeFromBookmarksAC: (id: string) => ({type: REMOVE_FROM_BOOKMARKS, payload: id} as const),
@@ -60,7 +60,7 @@ const initialState = {
     bookmarks: localStorage.getItem('bookmarks')
         ? JSON.parse(localStorage.getItem('bookmarks') as string)
         : [] as Array<ImageType>,
-    setResponseData(data: any) {
+    setResponseData(data: any,isResetCurrentPage:boolean) {
     },
     setImages(data: any) {
     },
@@ -91,8 +91,8 @@ export const ImageProvider: React.FC = ({children}) => {
     }, [state])
 
 
-    state.setResponseData = (data: any) => {
-        dispatch(actions.setResponseDataAC(data))
+    state.setResponseData = (data: any, isResetCurrentPage: boolean) => {
+        dispatch(actions.setResponseDataAC(data, isResetCurrentPage))
     }
 
     state.setImages = (data: Array<ImageType>) => {

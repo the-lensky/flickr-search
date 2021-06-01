@@ -3,7 +3,7 @@ import React, {KeyboardEvent} from 'react'
 import './Search.css'
 
 type SearchPropsType = {
-    getImages: (query: string) => void,
+    getImages: (query: string, isResetCurrentPage:boolean) => void,
     searchQuery: string,
     setSearchQuery: (query: string) => void
 }
@@ -16,7 +16,7 @@ const Search: React.FC<SearchPropsType> = ({getImages, searchQuery, setSearchQue
 
     const handleKey = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
-            getImages(searchQuery)
+            getImages(searchQuery, true)
         }
     }
 
@@ -33,7 +33,7 @@ const Search: React.FC<SearchPropsType> = ({getImages, searchQuery, setSearchQue
                 />
                 <i
                     className="material-icons prefix large icon search-icon"
-                    onClick={() => getImages(searchQuery)}
+                    onClick={() => getImages(searchQuery,true)}
                 >search</i>
             </div>
         </div>

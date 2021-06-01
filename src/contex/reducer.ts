@@ -25,7 +25,8 @@ export function reducer(state: TInitialState, action: ActionsTypes) {
         case SET_RESPONSE_DATA: {
             return {
                 ...state,
-                responseData: action.payload
+                responseData: action.payload.data,
+                currentPage: action.payload.isResetCurrentPage ? 1 : state.currentPage
             }
         }
 

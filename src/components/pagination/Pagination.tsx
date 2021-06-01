@@ -12,11 +12,37 @@ const Pagination = () => {
     const disableNextBtn = currentPage >= pages ? true : false
 
     return (
-        <div>
-            <button disabled={disablePrevBtn} onClick={setPrevPage}>PREV</button>
-            <span>{`Page ${currentPage} of ${pages}`}</span>
-            <button disabled={disableNextBtn} onClick={setNextPage}>NEXT</button>
-        </div>
+        // <div>
+        //     <button disabled={disablePrevBtn} onClick={setPrevPage}>PREV</button>
+        //     <span>{`Page ${currentPage} of ${pages}`}</span>
+        //     <button disabled={disableNextBtn} onClick={setNextPage}>NEXT</button>
+        // </div>
+
+        <ul className="pagination ">
+            <li className="disabled">
+                <button
+                    disabled={disablePrevBtn}
+                    className='btn grey darken-4'
+                    onClick={setPrevPage}
+                >
+                    <i className="material-icons">
+                        chevron_left</i>
+                </button>
+            </li>
+            <li className="grey darken-4">{`Page ${currentPage} of ${pages}`}</li>
+            <li
+                className="waves-effect">
+                <button
+                    disabled={disableNextBtn}
+                    className='btn grey darken-4'
+                    onClick={setNextPage}
+                >
+                    <i className="material-icons">
+                        chevron_right
+                    </i>
+                </button>
+            </li>
+        </ul>
     )
 }
 

@@ -4,12 +4,13 @@
 
 .card-image{
     width: 100%;
-    max-height: 300px;
+    max-height: 350px;
+    overflow: hidden;
 }
 
 .card-image img {
     max-width: 100%;
-    object-fit: cover
+    object-fit: contain;
 }
 
 .card .card-content {

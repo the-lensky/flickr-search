@@ -9,21 +9,21 @@ const API_KEY = process.env.REACT_APP_API_KEY
 
 const Main = () => {
 
-    const {setImages, setResponseData, currentPage, responseData, searchQuery, setSearchQuery} = useContext(ImageContext)
+    const {setImages, images, setResponseData, currentPage, searchQuery, setSearchQuery} = useContext(ImageContext)
 
     const API_URL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&page=${currentPage}&per_page=24&format=json&nojsoncallback=true&text=`
 
-    const getImages = (query: string) => {
+    const getImages = (query: string, isResetCurrentPage:boolean =false) => {
         try {
             if (query.toLowerCase().trim() !== '') {
                 fetch(`${API_URL}${query}`)
                     .then(response => response.json())
                     .then(data => {
-                        setResponseData(data.photos)
+                        setResponseData(data.photos,isResetCurrentPage)
                         setImages(data.photos.photo)
                     })
             } else {
-                setResponseData({})
+                setResponseData({},isResetCurrentPage)
                 setImages([])
             }
         } catch (err) {
@@ -31,8 +31,6 @@ const Main = () => {
         }
     }
 
-    console.log(Object.keys(responseData).length)
-    console.log(Object.keys(responseData))
 
     useEffect(() => {
         getImages(searchQuery)
@@ -42,7 +40,7 @@ const Main = () => {
     return (
         <div className='container content grey darken-3'>
             <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} getImages={getImages}/>
-            {Object.keys(responseData).length ? <Pagination/> : null}
+            {images.length ? < Pagination/> : null}
             <ImageList/>
         </div>
     )
