@@ -23,7 +23,8 @@ const Main = () => {
                         setImages(data.photos.photo)
                     })
             } else {
-                console.log('ELSE')
+                setResponseData({})
+                setImages([])
             }
         } catch (err) {
             console.log(err)
