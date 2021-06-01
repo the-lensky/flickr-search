@@ -6,6 +6,7 @@ import {
     FETCH_NEXT_PAGE,
     FETCH_PREV_PAGE,
     ADD_TAG,
+    SET_SEARCH_QUERY
 } from './actions'
 
 import {ActionsTypes, ImageType, TInitialState} from './state'
@@ -65,6 +66,13 @@ export function reducer(state: TInitialState, action: ActionsTypes) {
             return {
                 ...state,
                 images: newArr
+            }
+        }
+
+        case SET_SEARCH_QUERY: {
+            return {
+                ...state,
+                searchQuery: action.payload
             }
         }
 

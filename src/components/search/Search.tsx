@@ -2,22 +2,21 @@ import React, {KeyboardEvent} from 'react'
 
 import './Search.css'
 
-// type ISearchType {
-//     getImages: any
-//     query: string
-//     setQuery:any
-// }
+type SearchPropsType = {
+    getImages: (query: string) => void,
+    searchQuery: string,
+    setSearchQuery: (query: string) => void
+}
 
-const Search: React.FC<any> = ({getImages, query, setQuery})  => {
+const Search: React.FC<SearchPropsType> = ({getImages, searchQuery, setSearchQuery}) => {
 
     const handleChange = ((e: React.ChangeEvent<HTMLInputElement>) => {
-        e.preventDefault()
-        setQuery(e.target.value)
+        setSearchQuery(e.target.value)
     })
 
     const handleKey = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
-            getImages(query)
+            getImages(searchQuery)
         }
     }
 
@@ -28,13 +27,13 @@ const Search: React.FC<any> = ({getImages, query, setQuery})  => {
                     type='text'
                     id='search-field'
                     placeholder='Find images'
-                    value={query}
-                    onChange={handleChange}
+                    value={searchQuery}
+                    onChange={(e) => handleChange(e)}
                     onKeyDown={handleKey}
                 />
                 <i
                     className="material-icons prefix large icon search-icon"
-                    onClick={() => getImages(query)}
+                    onClick={() => getImages(searchQuery)}
                 >search</i>
             </div>
         </div>

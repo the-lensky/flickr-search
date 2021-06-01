@@ -14,7 +14,7 @@ const ImageList = () => {
     return (
         <div className='images'>
             {
-                images.map((image:ImageType) => (<ImageItem key={image.id} {...image} />))
+                images.map((image: ImageType) => (<ImageItem key={image.id} {...image} />))
             }
         </div>
     )

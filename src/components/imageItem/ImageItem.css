@@ -1,11 +1,15 @@
 .card {
-    background-color: #eeeeee;
+    background-color: #eee;
 }
 
 .card-image{
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    max-height: 300px;
+}
+
+.card-image img {
+    max-width: 100%;
+    object-fit: cover
 }
 
 .card .card-content {
@@ -17,10 +21,10 @@
     font-size: 1.3rem;
 }
 
-.image-wrapper{
+.image-wrapper {
     border: 1px solid #eee;
 }
 
 span {
-    color:#eee;
+    color: #eee;
 }

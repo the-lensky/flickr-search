@@ -7,7 +7,8 @@ import {
     REMOVE_FROM_BOOKMARKS,
     FETCH_NEXT_PAGE,
     FETCH_PREV_PAGE,
-    ADD_TAG
+    ADD_TAG,
+    SET_SEARCH_QUERY
 } from './actions'
 
 
@@ -26,7 +27,8 @@ export const actions = {
     removeFromBookmarksAC: (id: string) => ({type: REMOVE_FROM_BOOKMARKS, payload: id} as const),
     setNextPageAC: () => ({type: FETCH_NEXT_PAGE} as const),
     setPrevPageAC: () => ({type: FETCH_PREV_PAGE} as const),
-    addTagAC: (id: string, tag: string) => ({type: ADD_TAG, payload: {id, tag}} as const)
+    addTagAC: (id: string, tag: string) => ({type: ADD_TAG, payload: {id, tag}} as const),
+    setSearchQueryAC: (query: string) => ({type: SET_SEARCH_QUERY, payload: query} as const),
 }
 
 export type responseDataType = {
@@ -51,6 +53,7 @@ export type ImageType = {
 }
 
 const initialState = {
+    searchQuery: '',
     responseData: {} as responseDataType,
     currentPage: 1,
     images: [],
@@ -70,6 +73,8 @@ const initialState = {
     setPrevPage() {
     },
     addTag(id: string, tag: string) {
+    },
+    setSearchQuery(query: string) {
     }
 }
 
@@ -112,6 +117,10 @@ export const ImageProvider: React.FC = ({children}) => {
 
     state.addTag = (id: string, tag: string) => {
         dispatch(actions.addTagAC(id, tag))
+    }
+
+    state.setSearchQuery = (query: string) => {
+        dispatch(actions.setSearchQueryAC(query))
     }
 
     return (
