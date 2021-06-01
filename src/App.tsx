@@ -1,30 +1,31 @@
-import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+
 import './App.css'
 
-import Main from './components/main/Main'
-import Bookmarks from './components/bookmarks/Bookmarks'
-import Sidebar from './components/sidebar/Sidebar'
-import Footer from './components/footer/Footer'
+import {ImageProvider} from './contex/state'
+
 import Header from './components/header/Header'
+import Sidebar from './components/sidebar/Sidebar'
+import Main from './components/main/Main'
+import BookmarkList from './components/bookmarksList/BookmmarksList'
+import Footer from './components/footer/Footer'
 
 
-function App() {
+const App = () => {
     return (
-        <>
-            <Router basename='/imagefinder'>
+        <ImageProvider>
+            <Router>
                 <main className='wrapper grey darken-2'>
                     <Header/>
                     <Sidebar/>
-                    <Main />
-                    {/*<Switch>*/}
-                    {/*    <Route exact path='/' component={Main} />*/}
-                    {/*    <Route path='/bookmarks' component={Bookmarks} />*/}
-                    {/*</Switch>*/}
+                    <Switch>
+                        <Route path='/' exact component={Main}/>
+                        <Route path='/bookmarks' component={BookmarkList}/>
+                    </Switch>
                     <Footer/>
                 </main>
             </Router>
-        </>
+        </ImageProvider>
     )
 }
 

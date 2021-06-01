@@ -3,11 +3,21 @@
     flex-direction: column;
     text-align: center;
     cursor: pointer;
+    color: darkgray;
 }
+
+.activeIcon {
+    background-color: gold;
+}
+
 @media (max-width: 500px) {
     .wrapper-icon {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
     }
+}
+
+i {
+    color: #eee;
 }

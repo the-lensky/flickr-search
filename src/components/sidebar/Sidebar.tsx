@@ -1,11 +1,22 @@
-import React from 'react'
-import './sidebar.css'
+import './Sidebar.css'
+import {NavLink} from 'react-router-dom'
 
 function Sidebar() {
     return (
         <div className='wrapper-icon'>
-            <i className="material-icons large icon">search</i>
-            <i className="material-icons large icon">star</i>
+            <NavLink
+                exact
+                to="/"
+                activeClassName='activeIcon'
+            >
+                <i className="material-icons large icon">search</i>
+            </NavLink>
+            <NavLink
+                to="/bookmarks"
+                activeClassName='activeIcon'
+            >
+                <i className="material-icons large icon">star</i>
+            </NavLink>
         </div>
     )
 }

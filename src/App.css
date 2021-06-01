@@ -29,21 +29,25 @@
 
 .container {
     width: 100%;
+    max-width: 100%;
+    color: #eee;
 }
 
 .content {
     min-height: calc(100vh - 132px);
     padding: 1.5rem 0;
+    color: #eee;
 }
 
 @media (max-width: 800px) {
     .wrapper {
         grid-template-columns: 2fr 10fr;
         grid-template-areas:
-      "header header"
-      "aside content"
-      "footer footer"
+          "header header"
+          "aside content"
+          "footer footer"
     }
+
     .content {
         min-height: calc(100vh - 126px);
         padding: 1.5rem 0;
@@ -54,11 +58,12 @@
     .wrapper {
         grid-template-columns: 3fr;
         grid-template-areas:
-      "header header"
-      "aside aside"
-      "content content"
-      "footer footer";
+          "header header"
+          "aside aside"
+          "content content"
+          "footer footer";
     }
+
     .content {
         min-height: calc(100vh - 210px);
         padding: 1.5rem 0;
