@@ -1,10 +1,11 @@
+import {Link} from 'react-router-dom'
 
 
 const Header = () => {
     return (
         <nav className='grey darken-4 header nav-wraper'>
             <div className="nav-wrapper">
-                <a href="/flickr-search" className="brand-logo">Image Finder</a>
+                <Link to="/" className="brand-logo">Image Finder</Link>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li>
                         <a href="https://github.com/the-lensky/flickr-search" rel="noreferrer" target="_blank">
