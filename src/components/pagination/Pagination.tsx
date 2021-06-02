@@ -16,7 +16,6 @@ const Pagination = () => {
     return (
 
         <ul className="pagination pagination-wrapper">
-
             {!disablePrevBtn
                 ? <li className=" waves-effect ">
                     <button
@@ -30,20 +29,20 @@ const Pagination = () => {
                 </li>
                 : null
             }
-
             <li className="grey darken-4 page-counter">{`Page ${currentPage} of ${pages}`}</li>
-            <li
-                className="waves-effect">
-                <button
-                    disabled={disableNextBtn}
-                    className='btn grey darken-4'
-                    onClick={setNextPage}
-                >
-                    <i className="material-icons">
-                        chevron_right
-                    </i>
-                </button>
-            </li>
+            {!disableNextBtn
+                ? <li className=" waves-effect ">
+                    <button
+                        disabled={disableNextBtn}
+                        className='btn grey darken-4'
+                        onClick={setNextPage}
+                    >
+                        <i className="material-icons">
+                            chevron_right</i>
+                    </button>
+                </li>
+                : null
+            }
         </ul>
     )
 }

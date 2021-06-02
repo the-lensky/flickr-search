@@ -11,3 +11,7 @@
     align-items: center;
     font-size: 16px;
 }
+
+.pagination li {
+    height: 33px !important;
+}
