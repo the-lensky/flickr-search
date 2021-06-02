@@ -34,7 +34,7 @@
 }
 
 .content {
-    min-height: calc(100vh - 132px);
+    min-height: calc(100vh - 134px);
     padding: 1.5rem 0;
     color: #eee;
 }

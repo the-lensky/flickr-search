@@ -1,0 +1,13 @@
+.pagination-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 14px;
+    margin-bottom: 4px;
+
+}
+
+.page-counter {
+    display: flex !important;
+    align-items: center;
+    font-size: 16px;
+}

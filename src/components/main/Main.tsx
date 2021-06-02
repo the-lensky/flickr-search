@@ -13,17 +13,17 @@ const Main = () => {
 
     const API_URL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&page=${currentPage}&per_page=24&format=json&nojsoncallback=true&text=`
 
-    const getImages = (query: string, isResetCurrentPage:boolean =false) => {
+    const getImages = (query: string, isResetCurrentPage: boolean = false) => {
         try {
             if (query.toLowerCase().trim() !== '') {
                 fetch(`${API_URL}${query}`)
                     .then(response => response.json())
                     .then(data => {
-                        setResponseData(data.photos,isResetCurrentPage)
+                        setResponseData(data.photos, isResetCurrentPage)
                         setImages(data.photos.photo)
                     })
             } else {
-                setResponseData({},isResetCurrentPage)
+                setResponseData({}, isResetCurrentPage)
                 setImages([])
             }
         } catch (err) {
