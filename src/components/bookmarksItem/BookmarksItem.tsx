@@ -1,9 +1,9 @@
 import React, {useContext} from 'react'
+import {ImageContext, ImageType} from '../../contex/state'
 import '../imageItem/ImageItem.css'
-import {ImageContext} from '../../contex/state'
 
 
-const Image = (props: any) => {
+const Image = (props:ImageType) => {
 
     const {title, farm, server, secret, id, tag} = props
 
@@ -32,17 +32,6 @@ const Image = (props: any) => {
             <div className="card-action">
             </div>
         </div>
-
-        // <div className='col s12 m6 l4 image-wrapper'>
-        //     <img className='card-image' src={imgPath} alt={title}/>
-        //     <button
-        //         className="btn grey darken-4"
-        //         onClick={() => removeFromBookmarks(id)}
-        //     >
-        //         Удалить из избранного
-        //     </button>
-        //     <p>{tag}</p>
-        // </div>
     )
 }
 
