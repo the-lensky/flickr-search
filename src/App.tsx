@@ -14,7 +14,7 @@ import Footer from './components/footer/Footer'
 const App = () => {
     return (
         <ImageProvider>
-            <Router>
+            <Router basename='/flickr-search'>
                 <main className='wrapper grey darken-2'>
                     <Header/>
                     <Sidebar/>
